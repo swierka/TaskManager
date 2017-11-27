@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Task Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<div style="background: #a1ccad; padding:20px;">
+<h1>Task Manager</h1>
+</div>
+<div>
+    <p>
+        <a href="/">Powrót do listy</a>
+    </p>
+</div>
+<a href ="/dodajZadanie">Dodaj zadanie</a>
+<h2>Zapisane zadania</h2>
+
+<div>
+    <p th:each="task: ${lista}" >
+        <a th:href="${'/zadanie?id=' + task.id}" th:text="${task.name}" />
+    </p>
+</div>
+</body>
+</html>

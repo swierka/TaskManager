@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Task Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<div style="background: #a1ccad; padding:20px;">
+    <h1>Task Manager</h1>
+</div>
+<div>
+    <p>
+        <a href="/">Powrót do listy</a>
+    </p>
+</div>
+<br />
+<form action="/dodajNoweZadanie" method="post" th:object="${toBedzieNoweZadanie}">
+    Nazwa:              <input type="text" th:field="*{name}" /> <br />
+    Opis:               <input type="text" th:field="*{description}" /> <br />
+    Deadline:           <input type="date" th:field="*{deadline}" /> <br />
+    Data ukończenia:    <input type="date" th:field="*{executionDate}" /> <br />
+    Skończone:          <select name="nazwa">
+    <option>Tak</option>
+    <option selected="selected">Nie</option>
+</select> <br />
+    Czas wykonania: <input type="number" th:field="*{timeSpent}" /> <br />
+    <input type="submit" value="Dodaj" />
+</form>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Task Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div style="background: #a1ccad; padding:20px;">
+    <h1>Task Manager</h1>
+</div>
+<p>
+    <a href="/">Powrót do listy</a>
+</p>
+
+<h2 th:text="${task.name+ ' (ID:' + task.id + ')'}" >Zadania1 (ID: 20)</h2>
+Deadline:       <p th:text="${task.deadline}" >2017-27-11</p><br />
+Czy skończone:  <p th:date="${task.isFinished}" >Tak</p><br />
+Data ukończenia: <p th:date="${task.executionDate}" >2017-26-11</p><br />
+Czas wykonania: <p th:number="${task.timSpent}" >5</p><br />
+
+Szczegóły: <p th:text="${task.description}">Zadanie z Hibernate</p><br />
+</body>
+</html>
