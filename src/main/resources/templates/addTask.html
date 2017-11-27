@@ -15,16 +15,16 @@
 </div>
 <br />
 <form action="/dodajNoweZadanie" method="post" th:object="${toBedzieNoweZadanie}">
-    Nazwa:              <input type="text" th:field="*{name}" /> <br />
-    Opis:               <input type="text" th:field="*{description}" /> <br />
-    Deadline:           <input type="date" th:field="*{deadline}" /> <br />
-    Data ukończenia:    <input type="date" th:field="*{executionDate}" /> <br />
-    Skończone:          <select name="nazwa">
+    <p>Nazwa:              <input type="text" th:field="*{name}" /> </p>
+    <p>Deadline:           <input type="date" th:field="*{deadline}" /></p>
+    <p>Data ukończenia:    <input type="date" th:field="*{executionDate}" /></p>
+    <p>Skończone:          <select name="nazwa">
     <option>Tak</option>
     <option selected="selected">Nie</option>
-</select> <br />
-    Czas wykonania: <input type="number" th:field="*{timeSpent}" /> <br />
-    <input type="submit" value="Dodaj" />
+</select> </p>
+    <p> Czas wykonania: <input type="number" th:field="*{timeSpent}" /></p>
+    <p>Opis:               <textarea  rows = "5" cols = "80" th:field="*{description}" /></textarea> </p>
+    <input type="submit" value="Dodaj nowe zadanie" />
 </form>
 
 </body>

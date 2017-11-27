@@ -14,13 +14,16 @@
         <a href="/">Powrót do listy</a>
     </p>
 </div>
-<a href ="/dodajZadanie">Dodaj zadanie</a>
-<h2>Zapisane zadania</h2>
+<a href ="/dodajZadanie">Dodaj nowe zadanie</a>
+<h2>Zapisane zadania:</h2>
 
-<div>
+<div th:if=""not ${lista.isEmpty()}>
     <p th:each="task: ${lista}" >
         <a th:href="${'/zadanie?id=' + task.id}" th:text="${task.name}" />
     </p>
+</div>
+<div th:if="${lista.isEmpty()}">
+    <h3>Nie zapisano jeszcze żadnego zadania</h3>
 </div>
 </body>
 </html>

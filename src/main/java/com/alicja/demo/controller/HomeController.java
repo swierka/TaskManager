@@ -14,17 +14,20 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    @Autowired
-    private TaskRepository taskRepository;
 
-    @Autowired
     private TaskServiceImp taskServiceImp;
 
+
     @Autowired
-    private TaskService taskService;
+    public HomeController(TaskServiceImp taskServiceImp) {
+        this.taskServiceImp = taskServiceImp;
+    }
+
+    public HomeController() {
+    }
 
     @GetMapping("/")
-    public String taskDetails(Model model){
+    public String home(Model model){
         List<Task> tasks = taskServiceImp.getAll();
         model.addAttribute("lista",tasks);
         return "index";
