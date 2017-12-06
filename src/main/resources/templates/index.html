@@ -9,15 +9,11 @@
 <div style="background: #a1ccad; padding:20px;">
 <h1>Task Manager</h1>
 </div>
-<div>
-    <p>
-        <a href="/">Powrót do listy</a>
-    </p>
-</div>
+
 <a href ="/dodajZadanie">Dodaj nowe zadanie</a>
 <h2>Zapisane zadania:</h2>
 
-<div th:if=""not ${lista.isEmpty()}>
+<div th:if="${!lista.isEmpty()}">
     <p th:each="task: ${lista}" >
         <a th:href="${'/zadanie?id=' + task.id}" th:text="${task.name}" />
     </p>

@@ -21,21 +21,23 @@ public class Task {
 
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate deadline;
+    private Date deadline;
 
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate executionDate;
+    @Column(name = "execution_date")
+    private Date executionDate;
 
-    @Column(nullable=false)
-    private Boolean isFinished;
+    @Column(name="is_finished", nullable=false)
+    private boolean isFinished;
 
+    @Column(name = "time_spent")
     private double timeSpent;
 
     public Task() {
     }
 
-    public Task(String name, String description, LocalDate deadline, LocalDate executionDate, Boolean isFinished, double timeSpent) {
+    public Task(String name, String description, Date deadline, Date executionDate, Boolean isFinished, double timeSpent) {
         this.name = name;
         this.description = description;
         this.deadline = deadline;
@@ -68,27 +70,27 @@ public class Task {
         this.description = description;
     }
 
-    public LocalDate getDeadline() {
+    public Date getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(LocalDate deadline) {
+    public void setDeadline(Date deadline) {
         this.deadline = deadline;
     }
 
-    public LocalDate getExecutionDate() {
+    public Date getExecutionDate() {
         return executionDate;
     }
 
-    public void setExecutionDate(LocalDate executionDate) {
+    public void setExecutionDate(Date executionDate) {
         this.executionDate = executionDate;
     }
 
-    public Boolean getFinished() {
+    public boolean getFinished() {
         return isFinished;
     }
 
-    public void setFinished(Boolean finished) {
+    public void setFinished(boolean finished) {
         isFinished = finished;
     }
 

@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 
+<body>
 <div style="background: #a1ccad; padding:20px;">
     <h1>Task Manager</h1>
 </div>
@@ -16,15 +17,13 @@
 <br />
 <form action="/dodajNoweZadanie" method="post" th:object="${toBedzieNoweZadanie}">
     <p>Nazwa:              <input type="text" th:field="*{name}" /> </p>
-    <p>Deadline:           <input type="date" th:field="*{deadline}" /></p>
-    <p>Data ukończenia:    <input type="date" th:field="*{executionDate}" /></p>
-    <p>Skończone:          <select name="nazwa">
-    <option>Tak</option>
-    <option selected="selected">Nie</option>
-</select> </p>
-    <p> Czas wykonania: <input type="number" th:field="*{timeSpent}" /></p>
-    <p>Opis:               <textarea  rows = "5" cols = "80" th:field="*{description}" /></textarea> </p>
-    <input type="submit" value="Dodaj nowe zadanie" />
+    <p>Deadline:           <input type="${#dates.format(sprint.releaseDate, 'dd-MMM-yyyy')}" th:field="*{deadline}" /></p>
+    <p>Data ukończenia:    <input type="${#dates.format(sprint.releaseDate, 'dd-MMM-yyyy')}" th:field="*{executionDate}" /></p>
+    <p>Skończone:          <input type="checkbox" th:field="*{finished}" th:value="${true}" /> </p>
+    <p>Czas wykonania (w godz.): <input type="number" th:field="*{timeSpent}" /></p>
+    <p>Opis:               <textarea  rows = "5" cols = "80" th:field="*{description}" /></p>
+    <p> <input type="submit" value="Dodaj nowe zadanie" /></p>
+
 </form>
 
 </body>

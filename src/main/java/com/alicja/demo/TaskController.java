@@ -1,4 +1,4 @@
-package com.alicja.demo.controller;
+package com.alicja.demo;
 
 
 import com.alicja.demo.model.Task;
